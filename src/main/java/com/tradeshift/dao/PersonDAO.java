@@ -17,8 +17,8 @@ public class PersonDAO {
 
     public static final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
     public static final String URL = "jdbc:mysql://localhost/maven";
-    public static final String USER_NAME = "hushuai";
-    public static final String USER_PWD = "123456";
+    public static final String USER_NAME = "root";
+    public static final String USER_PWD = "hs000000";
 
     private Connection connection = null;
     private Statement statement = null;
@@ -51,6 +51,7 @@ public class PersonDAO {
     }
 
     public Person read(String name) {
+        //Person person = new Person("test", 100);
         Person person = null;
 
         String sql = "select * from person where name = '" + name + "'";
@@ -59,7 +60,6 @@ public class PersonDAO {
             connection = DriverManager.getConnection(URL, USER_NAME, USER_PWD);
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
-
             while(resultSet.next()) {
                 person = new Person();
                 person.setName(resultSet.getString("name"));

@@ -10,9 +10,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 public class Person {
-    //@XmlElem
+
     private int age;
-    //@XmlElement(name = "Name")
     private String name;
 
     public Person() {
